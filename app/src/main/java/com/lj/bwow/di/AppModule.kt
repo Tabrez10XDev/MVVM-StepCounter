@@ -1,7 +1,10 @@
 package com.lj.bwow.di
 
 import android.content.Context
+import android.net.ConnectivityManager
 import androidx.room.Room
+import com.google.android.gms.location.ActivityRecognition
+import com.google.android.gms.location.ActivityRecognitionClient
 import com.lj.bwow.api.HealthAPI
 import com.lj.bwow.data.room.HealthDao
 import com.lj.bwow.data.room.HealthDatabase
@@ -33,9 +36,23 @@ object AppModule {
 
     @Singleton
     @Provides
+    fun provideActivityRecognition(
+        @ApplicationContext context: Context
+    ): ActivityRecognitionClient = ActivityRecognition.getClient(context)
+
+//    @Singleton
+//    @Provides
+//    fun provideConnectivityManager(
+//        @ApplicationContext context: Context
+//    ) = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+    @Singleton
+    @Provides
     fun provideHealthDatabase(
         @ApplicationContext context : Context
-    ) = Room.databaseBuilder(context, HealthDatabase::class.java, DATABASE_NAME).build()
+    ) = Room.databaseBuilder(context, HealthDatabase::class.java, DATABASE_NAME)
+            .fallbackToDestructiveMigration()
+            .build()
 
     @Singleton
     @Provides

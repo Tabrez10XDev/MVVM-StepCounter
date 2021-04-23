@@ -51,7 +51,7 @@
                 android:ellipsize="end"
                 android:paddingLeft="8dp"
                 android:paddingTop="6dp"
-                android:text="100"
+                android:text="0"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold|italic" />
@@ -100,11 +100,12 @@
                 />
 
             <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvPurple"
                 android:paddingLeft="8dp"
                 android:paddingTop="6dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="7.5 HOURS"
+                android:text="--"
                 android:ellipsize="end"
                 android:textColor="@color/black"
                 android:textStyle="bold|italic"
@@ -158,11 +159,12 @@
                 />
 
             <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvRed"
                 android:paddingLeft="8dp"
                 android:paddingTop="6dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="90 BPM"
+                android:text="--"
                 android:ellipsize="end"
                 android:textColor="@color/black"
                 android:textStyle="bold|italic"
@@ -216,11 +218,12 @@
                 />
 
             <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvGreen"
                 android:paddingLeft="8dp"
                 android:paddingTop="6dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="21 HRS/WEEK"
+                android:text="--"
                 android:ellipsize="end"
                 android:textColor="@color/black"
                 android:textStyle="bold|italic"
