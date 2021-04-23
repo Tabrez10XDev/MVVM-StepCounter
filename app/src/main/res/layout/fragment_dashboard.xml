@@ -26,6 +26,36 @@
             android:elevation="5dp"
             android:orientation="vertical">
 
+            <androidx.appcompat.widget.AppCompatImageView
+                android:padding="12dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_walk"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:paddingLeft="8dp"
+                android:paddingTop="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Walking\nStep Counter"
+                android:ellipsize="end"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvBlue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:paddingLeft="8dp"
+                android:paddingTop="6dp"
+                android:text="100"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold|italic" />
+
 
         </LinearLayout>
 
@@ -49,6 +79,39 @@
             android:background="@drawable/purple_bg"
             android:elevation="5dp"
             android:orientation="vertical">
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:padding="12dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_moon"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:paddingLeft="8dp"
+                android:paddingTop="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sleeping\nTime"
+                android:ellipsize="end"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:paddingLeft="8dp"
+                android:paddingTop="6dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="7.5 HOURS"
+                android:ellipsize="end"
+                android:textColor="@color/black"
+                android:textStyle="bold|italic"
+                android:textSize="18sp"
+                />
+
+
 
         </LinearLayout>
 
@@ -75,6 +138,39 @@
             android:elevation="5dp"
             android:orientation="vertical">
 
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:padding="12dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_favorite"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:paddingLeft="8dp"
+                android:paddingTop="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Heart\nRate"
+                android:ellipsize="end"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:paddingLeft="8dp"
+                android:paddingTop="6dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="90 BPM"
+                android:ellipsize="end"
+                android:textColor="@color/black"
+                android:textStyle="bold|italic"
+                android:textSize="18sp"
+                />
+
+
+
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
@@ -100,6 +196,39 @@
             android:elevation="5dp"
             android:orientation="vertical">
 
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:padding="12dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_time"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:paddingLeft="8dp"
+                android:paddingTop="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Training\nTime"
+                android:ellipsize="end"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:paddingLeft="8dp"
+                android:paddingTop="6dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="21 HRS/WEEK"
+                android:ellipsize="end"
+                android:textColor="@color/black"
+                android:textStyle="bold|italic"
+                android:textSize="18sp"
+                />
+
+
+
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
@@ -109,7 +238,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        card_view:layout_constraintGuide_percent="0.5f"
+        card_view:layout_constraintGuide_percent="0.5"
         />
 
     <androidx.constraintlayout.widget.Guideline
@@ -124,7 +253,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        card_view:layout_constraintGuide_percent="0.3f"
+        card_view:layout_constraintGuide_percent="0.3"
         />
 
     <TextView
@@ -135,7 +264,7 @@
         android:fontFamily="sans-serif-medium"
         android:text="Good Morning, Yash"
         android:textColor="#DA0E0C0C"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         card_view:layout_constraintBottom_toTopOf="@+id/guideline2"
         card_view:layout_constraintEnd_toEndOf="parent"
@@ -149,8 +278,17 @@
         android:fontFamily="sans-serif-medium"
         android:text="Have a great day Ahead!"
         android:textColor="#9F0E0C0C"
+        android:textSize="16sp"
         card_view:layout_constraintEnd_toEndOf="parent"
         card_view:layout_constraintStart_toStartOf="parent"
         card_view:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        card_view:layout_constraintBottom_toBottomOf="parent"
+        card_view:layout_constraintEnd_toStartOf="@+id/guideline" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
