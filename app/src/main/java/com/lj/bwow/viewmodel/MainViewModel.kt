@@ -11,6 +11,7 @@ import androidx.lifecycle.viewModelScope
 import com.google.android.gms.location.*
 import com.lj.bwow.data.HealthResponse
 import com.lj.bwow.data.room.Data
+import com.lj.bwow.data.room.Steps
 import com.lj.bwow.repositories.HealthRepository
 import com.lj.bwow.util.Resource
 import com.lj.bwow.util.Status
@@ -27,6 +28,8 @@ class MainViewModel @Inject constructor(
 
 
     val healthData = repository.observeHealthData()
+
+    val stepCount = repository.observeStepCount()
 
 
     private fun insertHealthDataIntoDb(healthData: Data) = viewModelScope.launch {
@@ -49,6 +52,11 @@ class MainViewModel @Inject constructor(
             }
         }
     }
+
+    fun insertStepCount(stepCount: Steps) = viewModelScope.launch {
+        repository.insertStepCount(stepCount)
+    }
+
 
 
     fun fetchHealthData(){

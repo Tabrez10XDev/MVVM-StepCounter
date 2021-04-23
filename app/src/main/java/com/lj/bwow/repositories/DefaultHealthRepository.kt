@@ -5,6 +5,7 @@ import com.lj.bwow.api.HealthAPI
 import com.lj.bwow.data.room.Data
 import com.lj.bwow.data.HealthResponse
 import com.lj.bwow.data.room.HealthDao
+import com.lj.bwow.data.room.Steps
 import com.lj.bwow.util.Resource
 import javax.inject.Inject
 
@@ -20,6 +21,14 @@ class DefaultHealthRepository @Inject constructor(
 
     override fun observeHealthData(): LiveData<Data> {
         return healthDao.observeHealthData()
+    }
+
+    override suspend fun insertStepCount(stepCount: Steps) {
+        return healthDao.insertStepCount(stepCount)
+    }
+
+    override fun observeStepCount(): LiveData<Steps> {
+        return healthDao.observeStepCount()
     }
 
 

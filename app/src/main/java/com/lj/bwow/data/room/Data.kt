@@ -18,5 +18,5 @@ data class Data(
     val trainingTime: String,
 
     @PrimaryKey(autoGenerate = true)
-    val id: Int ?= null
+    val id: Int = 2
 )

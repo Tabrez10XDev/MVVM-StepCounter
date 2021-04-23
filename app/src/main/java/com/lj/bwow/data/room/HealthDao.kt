@@ -15,4 +15,10 @@ interface HealthDao {
     @Query("SELECT * FROM health_data")
     fun observeHealthData(): LiveData<Data>
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertStepCount(stepCount: Steps)
+
+    @Query("SELECT * FROM step_count")
+    fun observeStepCount(): LiveData<Steps>
+
 }

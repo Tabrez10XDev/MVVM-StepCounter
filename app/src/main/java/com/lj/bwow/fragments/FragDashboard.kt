@@ -15,9 +15,11 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.lj.bwow.R
+import com.lj.bwow.data.room.Steps
 import com.lj.bwow.databinding.FragmentDashboardBinding
 import com.lj.bwow.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlin.properties.Delegates
 
 
 @AndroidEntryPoint
@@ -26,7 +28,7 @@ class FragDashboard : Fragment(), SensorEventListener {
 
     lateinit var viewModel: MainViewModel
 
-    private var i : Int = 0
+    private var i = 0
     private var mSensorManager: SensorManager? = null
     private var mAccelerometer: Sensor? = null
 
@@ -40,8 +42,6 @@ class FragDashboard : Fragment(), SensorEventListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentDashboardBinding.bind(view)
-        setupPedometer()
-
         viewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
         viewModel.healthData.observe(viewLifecycleOwner, Observer { response ->
             response?.let {
@@ -52,8 +52,19 @@ class FragDashboard : Fragment(), SensorEventListener {
             }
         })
 
+        viewModel.stepCount.observe(viewLifecycleOwner, Observer { response ->
+            response?.let {
+                i = it.stepCount
+                binding.tvBlue.text = i.toString()
+            }
+        })
+
+        setupPedometer()
+
+
         binding.button.setOnClickListener {
             viewModel.fetchHealthData()
+            viewModel.insertStepCount(Steps(stepCount = 0))
         }
     }
 
@@ -78,11 +89,10 @@ class FragDashboard : Fragment(), SensorEventListener {
 
     override fun onSensorChanged(event: SensorEvent?) {
         event ?: return
-        Log.d("Shami","Sham")
-        // Data 1: According to official documentation, the first value of the `SensorEvent` value is the step count
         event.values.firstOrNull()?.let {
-            i +=1
-            binding.tvBlue.text = i.toString()
+            i+=1
+            Log.d("Shami",i.toString())
+            viewModel.insertStepCount(Steps(stepCount = i))
         }
     }
 
